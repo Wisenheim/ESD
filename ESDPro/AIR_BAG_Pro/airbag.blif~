@@ -1,0 +1,6 @@
+.model AIRBAG
+.inputs INIT RESET CRASH SPEED
+.outputs BOOM
+
+# instanziazione dell'unità di controllo
+.subckt CONTROLLO INIT=INIT RESET=RESET CRASH=CRASH \ GO=GO

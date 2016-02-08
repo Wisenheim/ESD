@@ -1,0 +1,58 @@
+.model CONTROLLO
+.inputs INIT RESET CRASH GO
+.outputs START BOOM
+.latch    [18] LatchOut_v4   1
+.latch    [19] LatchOut_v5   1
+.start_kiss
+.i 4
+.o 2
+.p 11
+.s 3
+.r INIZIO
+0-0- INIZIO INIZIO 00
+-1-- INIZIO INIZIO 00
+100- INIZIO CALCOLO 10
+-01- INIZIO ESPLOSO 01
+0--- CALCOLO INIZIO 00
+11-- CALCOLO INIZIO 00
+1000 CALCOLO CALCOLO 10
+101- CALCOLO ESPLOSO 01
+1001 CALCOLO ESPLOSO 01
+-0-- ESPLOSO ESPLOSO 00
+-1-- ESPLOSO INIZIO 00
+.end_kiss
+.latch_order LatchOut_v4 LatchOut_v5
+.code INIZIO 11
+.code CALCOLO 00
+.code ESPLOSO 01
+.names INIT RESET CRASH LatchOut_v4 LatchOut_v5 [18]
+-1--- 1
+0---0 1
+0-01- 1
+.names INIT RESET CRASH GO LatchOut_v4 LatchOut_v5 [19]
+-1---- 1
+----01 1
+0----0 1
+-01-1- 1
+0-0-1- 1
+101--0 1
+10-1-0 1
+.names INIT RESET CRASH GO LatchOut_v4 LatchOut_v5 START
+100-1- 1
+1000-0 1
+.names INIT RESET CRASH GO LatchOut_v4 LatchOut_v5 BOOM
+-01-1- 1
+101--0 1
+10-1-0 1
+.exdc 
+.inputs INIT RESET CRASH GO LatchOut_v4 LatchOut_v5
+.outputs [18] [19] START BOOM
+.names LatchOut_v4 LatchOut_v5 [18]
+10 1
+.names LatchOut_v4 LatchOut_v5 [19]
+10 1
+.names LatchOut_v4 LatchOut_v5 START
+10 1
+.names LatchOut_v4 LatchOut_v5 BOOM
+10 1
+.end

@@ -1,0 +1,179 @@
+.model heart_rate
+.inputs init reset bpm7 bpm6 bpm5 bpm4 bpm3 bpm2 bpm1 bpm0
+.outputs soglia0 soglia1 numb7 numb6 numb5 numb4 numb3 numb2 numb1 numb0
+.default_input_arrival 0.00 0.00 
+.default_output_required 0.00 0.00 
+.default_input_drive 0.20 0.20 
+.default_output_load 1.00 
+.default_max_input_load 999.00 
+.latch    [790] LatchOut_v4 re NIL 0
+.latch    [792] LatchOut_v5 re NIL 0
+.latch    [587] c7 re NIL 0
+.latch    [798] c6 re NIL 0
+.latch    [803] c5 re NIL 0
+.latch    [806] c4 re NIL 0
+.latch    [585] c3 re NIL 0
+.latch    [586] c2 re NIL 0
+.latch    [584] c1 re NIL 0
+.latch    [814] c0 re NIL 0
+.names bpm7 bpm6 bpm5 [724]
+0-- 1
+-00 1
+.names [724] reset LatchOut_v5 [582]
+00- 1
+0-0 1
+.names reset LatchOut_v4 [583]
+11 1
+.names init [582] [583] [789]
+0-- 1
+-00 1
+.names [789] soglia0
+0 1
+.names soglia0 [790]
+1 1
+.names bpm6 [774]
+0 1
+.names bpm2 bpm1 bpm0 [986]
+0-- 1
+-00 1
+.names bpm3 [986] [940]
+1- 1
+-0 1
+.names [724] [940] bpm4 [699]
+00- 1
+0-0 1
+.names [774] [699] reset LatchOut_v4 [575]
+0-0- 1
+-00- 1
+0--0 1
+-0-0 1
+.names reset [725]
+0 1
+.names LatchOut_v5 [726]
+0 1
+.names [725] [726] [576]
+00 1
+.names init [575] [576] [731]
+0-- 1
+-00 1
+.names [731] soglia1
+0 1
+.names soglia1 [792]
+1 1
+.names [731] init [726] LatchOut_v4 [976]
+0--- 1
+-0-- 1
+--0- 1
+---0 1
+.names [976] [726] [731] [936]
+0-- 1
+-00 1
+.names [725] [936] [734]
+0- 1
+-0 1
+.names c5 [736]
+0 1
+.names c1 [742]
+0 1
+.names c0 [743]
+0 1
+.names [742] [743] [668]
+00 1
+.names [668] c2 c4 c3 [745]
+0--- 1
+-0-- 1
+--0- 1
+---0 1
+.names [736] [745] [544]
+00 1
+.names [544] c6 [923]
+01 1
+10 1
+.names [734] [923] [797]
+1- 1
+-0 1
+.names [797] numb6
+0 1
+.names c6 [735]
+0 1
+.names numb6 [734] c7 [735] [567]
+0000 1
+.names [797] c6 [734] [921]
+0-- 1
+-00 1
+.names [567] [921] c7 [49]
+00- 1
+0-0 1
+.names [49] numb7
+0 1
+.names numb7 [587]
+1 1
+.names numb6 [798]
+1 1
+.names c5 [745] [565]
+00 1
+.names [565] [745] c5 [545]
+00- 1
+0-0 1
+.names [545] [734] [802]
+1- 1
+-1 1
+.names [802] numb5
+0 1
+.names numb5 [803]
+1 1
+.names c2 [734] [742] [743] [561]
+0000 1
+.names c0 [734] [752]
+1- 1
+-1 1
+.names [752] c1 [734] [934]
+0-- 1
+-00 1
+.names [561] [934] c2 [54]
+00- 1
+0-0 1
+.names [54] numb2
+0 1
+.names c2 [737]
+0 1
+.names numb2 [734] c3 [737] [557]
+0000 1
+.names [54] c2 [734] [932]
+0-- 1
+-00 1
+.names [557] [932] c3 [53]
+00- 1
+0-0 1
+.names [53] numb3
+0 1
+.names c4 [53] c3 [546]
+00- 1
+0-0 1
+.names [745] [874]
+0 1
+.names [546] [874] [734] [805]
+1-- 1
+-1- 1
+--1 1
+.names [805] numb4
+0 1
+.names numb4 [806]
+1 1
+.names numb3 [585]
+1 1
+.names numb2 [586]
+1 1
+.names c1 [734] [756]
+1- 1
+-1 1
+.names [743] [756] [742] [752] numb1
+00-- 1
+--00 1
+.names numb1 [584]
+1 1
+.names [752] numb0
+0 1
+.names numb0 [814]
+1 1
+.end

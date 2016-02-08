@@ -1,0 +1,78 @@
+.model External_dataPath
+.inputs ST R14 R13 R12 R11 R10 R9 R8 R7 R6 R5 R4 R3 R2 R1
+.outputs SA2 SA1 TS NUMB8 NUMB7 NUMB6 NUMB5 NUMB4 NUMB3 NUMB2 NUMB1
+.latch    NUMB8 IN8 re NIL 0
+.latch    NUMB7 IN7 re NIL 0
+.latch    NUMB6 IN6 re NIL 0
+.latch    NUMB5 IN5 re NIL 0
+.latch    NUMB4 IN4 re NIL 0
+.latch    NUMB3 IN3 re NIL 0
+.latch    NUMB2 IN2 re NIL 0
+.latch    NUMB1 IN1 re NIL 0
+.names OPT SA2
+0 1
+.names OFG OPT OSG SA1
+0-- 1
+-10 1
+.names NUMB8 NUMB7 NUMB6 NUMB5 NUMB4 NUMB3 NUMB2 NUMB1 TS
+1------- 1
+-1------ 1
+--1----- 1
+---1---- 1
+----1111 1
+.names ST NUMB7 IN8 IN7 NUMB8
+-11- 1
+0-10 1
+0001 1
+.names ST NUMB6 IN7 IN6 NUMB7
+-11- 1
+0-10 1
+0001 1
+.names ST IN6 [502] NUMB6
+-00 1
+011 1
+.names ST re2 IN5 NUMB5
+-10 1
+001 1
+.names ST NUMB3 re2 IN4 [508] NUMB4
+0-01- 1
+-0-01 1
+.names ST NUMB1 IN1 IN3 IN2 [508] NUMB3
+-1-1-- 1
+----01 1
+0-101- 1
+.names ST NUMB1 IN1 IN2 NUMB2
+-1-1 1
+0-10 1
+.names ST IN1 NUMB1
+00 1
+.names ST R12 OS12
+11 1
+.names R7 R6 OS12 [500] [506] OFG
+--01- 1
+---11 1
+00-1- 1
+.names R7 R6 R5 OS12 OFG [506] OPT
+0--01- 1
+---011 1
+-0001- 1
+.names ST R11 R10 R9 R8 R7 R6 R5 R4 R3 R2 R1 OSG
+0----------- 1
+-00000000000 1
+.names IN1 IN4 IN2 [508] re2
+1111 1
+.names ST R14 R13 [500]
+0-- 1
+-00 1
+.names re2 IN5 [502]
+0- 1
+-0 1
+.names ST R11 R10 R9 R8 [506]
+0---- 1
+-0--- 1
+--0-- 1
+---0- 1
+----0 1
+.names ST IN3 [508]
+01 1
+.end

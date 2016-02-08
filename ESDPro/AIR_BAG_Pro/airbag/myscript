@@ -1,0 +1,8 @@
+fx
+full_simplify
+eliminate 10000
+fx; sweep
+full_simplify
+eliminate 10000000
+source script.rugged
+fx

@@ -1,0 +1,38 @@
+.model minore14
+.inputs A14 A13 A12 A11 A10 A9 A8 A7 A6 A5 A4 A3 A2 A1 B14 B13 B12 B11 B10 B9 B8 B7 B6 B5 B4 B3 B2 B1
+.outputs O
+
+.subckt xor A=A14 B=B14 O=O14
+.subckt xor A=A13 B=B13 O=O13
+.subckt xor A=A12 B=B12 O=O12
+.subckt xor A=A11 B=B11 O=O11
+.subckt xor A=A10 B=B10 O=O10
+.subckt xor A=A9 B=B9 O=O9
+.subckt xor A=A8 B=B8 O=O8
+.subckt xor A=A7 B=B7 O=O7
+.subckt xor A=A6 B=B6 O=O6
+.subckt xor A=A5 B=B5 O=O5
+.subckt xor A=A4 B=B4 O=O4
+.subckt xor A=A3 B=B3 O=O3
+.subckt xor A=A2 B=B2 O=O2
+.subckt xor A=A1 B=B1 O=O1
+
+.names A14 A13 A12 A11 A10 A9 A8 A7 A6 A5 A4 A3 A2 A1 O14 O13 O12 O11 O10 O9 O8 O7 O6 O5 O4 O3 O2 O1 O
+1-------------1------------- 0
+-1------------01------------ 0
+--1-----------001----------- 0
+---1----------0001---------- 0
+----1---------00001--------- 0
+-----1--------000001-------- 0
+------1-------0000001------- 0
+-------1------00000001------ 0
+--------1-----000000001----- 0
+---------1----0000000001---- 0
+----------1---00000000001--- 0
+-----------1--000000000001-- 0
+------------1-0000000000001- 0
+-------------100000000000001 0
+--------------00000000000000 0
+
+.search xor.blif
+.end

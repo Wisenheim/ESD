@@ -1,0 +1,12 @@
+.model data_path
+.inputs st bpm7 bpm6 bpm5 bpm4 bpm3 bpm2 bpm1 bpm0
+.outputs sa0 sa1 numb7 numb6 numb5 numb4 numb3 numb2 numb1 numb0
+
+#implementazione Sa 
+.subckt sa bpm7=bpm7 bpm6=bpm6 bpm5=bpm5 bpm4=bpm4 bpm3=bpm3 bpm2=bpm2 bpm1=bpm1 bpm0=bpm0 sa0=sa0 sa1=sa1
+
+#implementazioe numb
+.subckt numb st=st numb7=numb7 numb6=numb6 numb5=numb5 numb4=numb4 numb3=numb3 numb2=numb2 numb1=numb1 numb0=numb0
+.search sa.blif
+.search numb.blif
+.end

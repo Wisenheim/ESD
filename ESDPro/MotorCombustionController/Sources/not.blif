@@ -1,0 +1,9 @@
+.model not
+.inputs ST
+.outputs NOT_ST
+
+.names ST NOT_ST
+0 1
+
+.end
+

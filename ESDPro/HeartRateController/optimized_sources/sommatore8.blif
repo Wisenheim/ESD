@@ -1,0 +1,25 @@
+.model sommatore8
+.inputs f7 f6 f5 f4 f3 f2 f1 f0 s7 s6 s5 s4 s3 s2 s1 s0
+.outputs o7 o6 o5 o4 o3 o2 o1 o0
+.names f0 s0 o0
+10 1
+01 1
+.names f0 s0 re
+11 1
+
+.subckt sommatore first=f1 second=s1 carry_in=re out=o1 carry_out=re0
+.subckt sommatore first=f2 second=s2 carry_in=re0 out=o2 carry_out=re1
+.subckt sommatore first=f3 second=s3 carry_in=re1 out=o3 carry_out=re2
+.subckt sommatore first=f4 second=s4 carry_in=re2 out=o4 carry_out=re3
+.subckt sommatore first=f5 second=s5 carry_in=re3 out=o5 carry_out=re4
+.subckt sommatore first=f6 second=s6 carry_in=re4 out=o6 carry_out=re5
+
+.names f7 s7 re5 o7
+001 1
+010 1
+100 1
+111 1
+
+.search sommatore.blif
+.end 
+

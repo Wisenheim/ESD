@@ -1,0 +1,11 @@
+.model zero8	# costante 0 a 8 bit
+.outputs ZE8 ZE7 ZE6 ZE5 ZE4 ZE3 ZE2 ZE1
+.names ZE8
+.names ZE7
+.names ZE6
+.names ZE5
+.names ZE4
+.names ZE3
+.names ZE2
+.names ZE1
+.end

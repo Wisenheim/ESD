@@ -1,0 +1,12 @@
+.model mux2
+.inputs A2 A1 B2 B1 S
+.outputs O2 O1
+
+.names S A2 B2 O2
+11- 1
+0-1 1
+.names S A1 B1 O1
+11- 1
+0-1 1
+
+.end

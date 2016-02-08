@@ -1,0 +1,43 @@
+.model ELABORAZIONE
+.inputs SPEED7 SPEED6 SPEED5 SPEED4 SPEED3 SPEED2 SPEED1 SPEED0 START
+.outputs GO
+
+# definizione delle costante 0
+.subckt zero8 O7=C7 O6=C6 O5=C5 O4=C4 O3=C3 O2=C2 O1=C1 O0=C0
+
+# instanziazione del multiplexer che seleziona tra 0 e il valore di speed
+.subckt MUX8 A7=C7 A6=C6 A5=C5 A4=C4 A3=C3 A2=C2 A1=C1 A0=C0 B7=SPEED7 B6=SPEED6 B5=SPEED5 B4=SPEED4 B3=SPEED3 B2=SPEED2 B1=SPEED1 B0=SPEED0 S=START O7=R7 O6=R6 O5=R5 O4=R4 O3=R3 O2=R2 O1=R1 O0=R0
+
+# instanziazione del registro che memorizza T-1
+.subckt REGISTRO8 A7=R7 A6=R6 A5=R5 A4=R4 A3=R3 A2=R2 A1=R1 A0=R0 O7=S7 O6=S6 O5=S5 O4=S4 O3=S3 O2=S2 O1=S1 O0=S0
+
+# instanziazione del multiplexer che seleziona tra 0 e il valore di T-1
+.subckt MUX8 A7=C7 A6=C6 A5=C5 A4=C4 A3=C3 A2=C2 A1=C1 A0=C0 B7=S7 B6=S6 B5=S5 B4=S4 B3=S3 B2=S2 B1=S1 B0=S0 S=START O7=T7 O6=T6 O5=T5 O4=T4 O3=T3 O2=T2 O1=T1 O0=T0
+
+# instanziazione del registro che memorizza T-2
+.subckt REGISTRO8 A7=T7 A6=T6 A5=T5 A4=T4 A3=T3 A2=T2 A1=T1 A0=T0 O7=V7 O6=V6 O5=V5 O4=V4 O3=V3 O2=V2 O1=V1 O0=V0
+
+# instanziazione del multiplexer che seleziona tra 0 e il valore di T-2
+.subckt MUX8 A7=C7 A6=C6 A5=C5 A4=C4 A3=C3 A2=C2 A1=C1 A0=C0 B7=V7 B6=V6 B5=V5 B4=V4 B3=V3 B2=V2 B1=V1 B0=V0 S=START O7=Z7 O6=Z6 O5=Z5 O4=Z4 O3=Z3 O2=Z2 O1=Z1 O0=Z0
+
+# instanziazione del registro che memorizza T-3
+.subckt REGISTRO8 A7=Z7 A6=Z6 A5=Z5 A4=Z4 A3=Z3 A2=Z2 A1=Z1 A0=Z0 O7=D7 O6=D6 O5=D5 O4=D4 O3=D3 O2=D2 O1=D1 O0=D0
+
+# instanziazione dello shifter a destra di 2 posizioni del valore di T-3
+.subckt R2SHIFT8 A7=D7 A6=D6 A5=D5 A4=D4 A3=D3 A2=D2 A1=D1 A0=D0 O7=E7 O6=E6 O5=E5 O4=E4 O3=E3 O2=E2 O1=E1 O0=E0
+
+# instanziazione del minore tra speed e il risultato dello shifter
+.subckt 8_less A7=SPEED7 A6=SPEED6 A5=SPEED5 A4=SPEED4 A3=SPEED3 A2=SPEED2 A1=SPEED1 A0=SPEED0 B7=E7 B6=E6 B5=E5 B4=E4 B3=E3 B2=E2 B1=E1 B0=E0 AlessB=GO
+
+
+# file che contengono i modelli della costante, del multiplexer, del registro,
+# dello shifter e del minore
+.search zero8.blif
+.search mux8.blif
+.search registro8.blif
+.search r2shift8.blif
+.search 8_less.blif
+
+ 
+.end
+

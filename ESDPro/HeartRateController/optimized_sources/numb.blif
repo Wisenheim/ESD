@@ -1,0 +1,24 @@
+.model numb
+.inputs st
+.outputs numb7 numb6 numb5 numb4 numb3 numb2 numb1 numb0
+
+#implementazione registro a 8 bit 
+.subckt registro8 in7=numb7 in6=numb6 in5=numb5 in4=numb4 in3=numb3 in2=numb2 in1=numb1 in0=numb0 out7=c7 out6=c6 out5=c5 out4=c4 out3=c3 out2=c2 out1=c1 out0=c0
+
+#generazione costante uno
+.subckt costante_uno o7=d7 o6=d6 o5=d5 o4=d4 o3=d3 o2=d2 o1=d1 o0=d0
+
+#generazione costante zero
+.subckt costante_zero o7=e7 o6=e6 o5=e5 o4=e4 o3=e3 o2=e2 o1=e1 o0=e0
+
+#implementazione sommma 
+.subckt sommatore8 f7=c7 f6=c6 f5=c5 f4=c4 f3=c3 f2=c2 f1=c1 f0=c0 s7=d7 s6=d6 s5=d5 s4=d4 s3=d3 s2=d2 s1=d1 s0=d0 o7=k7 o6=k6 o5=k5 o4=k4 o3=k3 o2=k2 o1=k1 o0=k0
+
+#implemtazione multiplexer.. 
+.subckt mux8 s=st a7=e7 a6=e6 a5=e5 a4=e4 a3=e3 a2=e2 a1=e1 a0=e0 b7=k7 b6=k6 b5=k5 b4=k4 b3=k3 b2=k2 b1=k1 b0=k0 o7=numb7 o6=numb6 o5=numb5 o4=numb4 o3=numb3 o2=numb2 o1=numb1 o0=numb0
+
+.search registro8.blif
+.search costante_uno.blif
+.search costante_zero.blif
+.search sommatore8.blif
+.search mux8.blif

@@ -1,0 +1,11 @@
+print_stats
+full_simplify
+sweep
+eliminate -1
+simplify -m nocomp
+resub -a
+fx
+resub -a
+sweep
+full_simplify
+print_stats

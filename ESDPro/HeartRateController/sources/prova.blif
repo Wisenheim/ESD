@@ -1,0 +1,68 @@
+.model heart_rate
+.inputs init reset bpm7 bpm6 bpm5 bpm4 bpm3 bpm2 bpm1 bpm0
+.outputs soglia0 soglia1 numb7 numb6 numb5 numb4 numb3 numb2 numb1 numb0
+.latch    soglia0 LatchOut_v4   0
+.latch    soglia1 LatchOut_v5   0
+.latch    numb7 c7 re NIL 0
+.latch    numb6 c6 re NIL 0
+.latch    numb5 c5 re NIL 0
+.latch    numb4 c4 re NIL 0
+.latch    numb3 c3 re NIL 0
+.latch    numb2 c2 re NIL 0
+.latch    numb1 c1 re NIL 0
+.latch    numb0 c0 re NIL 0
+.names numb6 start c7 c6 numb7
+1-1- 1
+-110 1
+0101 1
+.names start c6 [730] numb6
+111 1
+100 1
+.names start re3 c5 numb5
+101 1
+110 1
+.names numb3 start re3 c4 c3 numb4
+-101- 1
+01-01 1
+.names numb2 start c3 c2 numb3
+1-1- 1
+-110 1
+0101 1
+.names numb0 start c0 c2 c1 numb2
+1--1- 1
+-1-10 1
+-1101 1
+.names numb0 start c0 c1 numb1
+1--1 1
+-110 1
+.names start c0 numb0
+10 1
+.names init reset LatchOut_v4 LatchOut_v5 soglia1 start
+-0-11 1
+10100 1
+.names init start LatchOut_v5 soglia1 z [728] soglia0
+1--0-- 1
+-1--1- 1
+1----0 1
+--011- 1
+.names init reset LatchOut_v5 z [728] [729] soglia1
+111--- 1
+1--11- 1
+1---11 1
+.names c0 c4 c3 c2 c1 re3
+11111 1
+.names bpm7 bpm6 bpm4 bpm3 bpm2 bpm1 bpm0 [729] z
+11------ 1
+--11---0 1
+--1-11-0 1
+--1-1-10 1
+.names reset LatchOut_v4 [728]
+0- 1
+-0 1
+.names bpm7 bpm5 [729]
+0- 1
+-0 1
+.names re3 c5 [730]
+0- 1
+-0 1
+.end

@@ -1,0 +1,27 @@
+.model sa
+.inputs bpm7 bpm6 bpm5 bpm4 bpm3 bpm2 bpm1 bpm0
+.outputs sa0 sa1
+#creazione costante 160 nella variabile interna c
+.subckt costante_160 o7=c7 o6=c6 o5=c5 o4=c4 o3=c3 o2=c2 o1=c1 o0=c0
+
+#creazione costante 180 nella variabile interna d
+
+.subckt costante_180 o7=d7 o6=d6 o5=d5 o4=d4 o3=d3 o2=d2 o1=d1 o0=d0
+
+#implementazione prima comparatore(minore 160)
+
+.subckt minor a7=bpm7 a6=bpm6 a5=bpm5 a4=bpm4 a3=bpm3 a2=bpm2 a1=bpm1 a0=bpm0 b7=c7 b6=c6 b5=c5 b4=c4 b3=c3 b2=c2 b1=c1 b0=c0 out=k0
+
+#implementazione prima comparatore(minore o uguale 180)
+
+.subckt minor_equal x7=bpm7 x6=bpm6 x5=bpm5 x4=bpm4 x3=bpm3 x2=bpm2 x1=bpm1 x0=bpm0 y7=d7 y6=d6 y5=d5 y4=d4 y3=d3 y2=d2 y1=d1 y0=d0 out0=k1
+
+#implementazione del selettore
+.subckt select s0=k0 s1=k1 o0=sa0 o1=sa1
+
+.search costante_160.blif
+.search costante_180.blif
+.search minor.blif
+.search minor_equal.blif
+.search select.blif
+.end

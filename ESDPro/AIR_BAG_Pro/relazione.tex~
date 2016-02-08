@@ -1,0 +1,63 @@
+\documentclass[a4paper,oneside,titlepage]{book}
+\usepackage[italian]{babel}
+\usepackage[T1]{fontenc} % anche questo caratteri accentati?
+\usepackage[utf8]{inputenc}   %permette di usare caratteri accentati
+\usepackage[nowrite]{frontespizio}
+\usepackage{graphicx}
+
+
+
+\begin{document}
+\begin{frontespizio}
+\Universita {Verona}
+\Logo[4cm]{univr}
+\Facolta {Scienze matematiche fisiche e naturali}
+\Dipartimento {Informatica}
+
+\Scuola{Laboratorio di Architettura degli elaboratori}
+\Annoaccademico {2012--2013}
+
+\Titolo {\Huge{Elaborato SIS   \\ Airbag}}
+\Candidato [VR368230]{Amin Ait Lamqadem}
+\Candidato [VR370403]{Youssef Ait Zaina}
+\end{frontespizio}
+
+\chapter{Presentazione del progetto}
+
+Si consideri il circuito sequenziale che controlla il dispositivo di airbag di un’automobile. Si basa su un
+dispositivo elettromeccanico che rileva il valore della velocità ad ogni ciclo di clock e lo trasforma in un
+numero binario in modulo rappresentato su 8 bit. Se il valore della velocità rilevata al tempo T è inferiore al
+25\% della velocità rilevata al tempo T–3 il controllore fa esplodere l’airbag. (Si noti che per calcolare se il
+rapporto tra le velocità è inferiore al 25\% basta dividere la velocità calcolata al tempo T–3 per 4 e
+confrontarla con la velocità calcolata al tempo T.)\\
+Un sensore di impatto frontale, che genera il segnale CRASH, obbliga l'airbag ad esplodere
+indipendentemente dalle rilevazioni sulla velocità.\\
+Il circuito è composto da un controllore e da un datapath e ha i seguenti ingressi e uscite.
+\begin{itemize}
+\item INIT[1]: quando vale 1 indica che l'automobile ha iniziato la decelerazione e il controllore deve
+verificare l'entità della decelerazione iniziando la rilevazione della velocità istantanea. Finché vale 0
+non deve essere fatto alcun controllo.
+\item SPEED[8]: valore della velocità istantanea.
+\item CRASH[1]: vale 1 se l'automobile ha avuto un impatto frontale e l’airbag deve scoppiare
+indipendentemente dalle rilevazioni sulla velocità.
+\item RESET[1]: se posto a 1 il controllore deve essere resettato, ovvero gli eventuali valori delle velocità
+memorizzati agli istanti di tempo T, T–1, T–2, T–3 devono essere azzerati, e i segnali BOOM e
+START devono essere posti a 0.
+\item BOOM[1]: deve essere posto a 1 per far esplodere l'airbag. Dopo questa esplosione, il circuito si
+pone in attesa di essere spento e riacceso tramite il segnale RESET.
+\item Il controllore è collegato al datapath con due segnali che hanno il seguente significato:
+\begin{itemize}
+\item START[1]: messo a 1 fa iniziare al datapath il calcolo del rapporto tra la velocità al tempo T
+e la velocità al tempo T–3.
+\item GO[1]: vale 1 quando il datapath ha verificato che il rapporto percentuale tra le velocità al
+tempo T e al tempo T–3 è inferiore al 25%.
+\end{itemize}
+\end{itemize}
+
+\begin{figure}[htp]
+\centering
+\includegraphics[scale=0.25]{fsmd.eps}
+\end{figure}
+
+\chapter{Scelte progettuali}
+\end{document}

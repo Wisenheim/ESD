@@ -1,0 +1,9 @@
+
+.model mux
+.inputs s a b
+.outputs out
+.names s a b out
+01- 1
+1-1 1
+.end
+

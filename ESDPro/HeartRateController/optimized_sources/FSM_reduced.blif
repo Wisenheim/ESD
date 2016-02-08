@@ -1,0 +1,64 @@
+.model FSM_control
+.inputs init reset sa0 sa1
+.outputs soglia0 soglia1 start
+.latch    soglia0 LatchOut_v4   0
+.latch    soglia1 LatchOut_v5   0
+.start_kiss
+.i 4
+.o 3
+.p 17
+.s 4
+.r OFF
+0--- OFF OFF 000
+1-01 OFF SOTTO 010
+1-10 OFF IN 100
+1-11 OFF OLTRE 110
+0--- SOTTO OFF 000
+1001 SOTTO SOTTO 011
+11-- SOTTO SOTTO 010
+1010 SOTTO IN 100
+0--- IN OFF 000
+1010 IN IN 101
+11-- IN IN 100
+1011 IN OLTRE 110
+1001 IN SOTTO 010
+0--- OLTRE OFF 000
+1011 OLTRE OLTRE 111
+11-- OLTRE OLTRE 110
+1010 OLTRE IN 100
+.end_kiss
+.latch_order LatchOut_v4 LatchOut_v5
+.code OFF 00
+.code SOTTO 01
+.code IN 10
+.code OLTRE 11
+.names init reset LatchOut_v4 soglia1 LatchOut_v5 start
+-0-11 1
+10100 1
+.names init reset sa0 LatchOut_v4 LatchOut_v5 soglia0
+101-- 1
+11-1- 1
+1-1-0 1
+.names init reset sa1 LatchOut_v4 LatchOut_v5 soglia1
+101-- 1
+1-10- 1
+11--1 1
+.exdc 
+.inputs init reset sa0 sa1 LatchOut_v4 LatchOut_v5
+.outputs soglia0 soglia1 start
+.names init reset sa0 sa1 LatchOut_v4 LatchOut_v5 soglia0
+1000-- 1
+100-11 1
+1-0000 1
+101101 1
+.names init reset sa0 sa1 LatchOut_v4 LatchOut_v5 soglia1
+1000-- 1
+100-11 1
+1-0000 1
+101101 1
+.names init reset sa0 sa1 LatchOut_v4 LatchOut_v5 start
+1000-- 1
+100-11 1
+1-0000 1
+101101 1
+.end

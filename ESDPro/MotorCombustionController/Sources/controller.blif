@@ -1,0 +1,34 @@
+.model controller
+.inputs INIT RESET TS SA2 SA1
+.outputs ST MOD2 MOD1 ALM
+
+# tabella delle transizioni
+# (ingressi, stato presente, stato prossimo, uscite)
+.start_kiss
+.i 5						# Numero di input
+.o 4						# Numero di output
+.p 19						# Numero di transizioni
+.s 4						# Numero di stati
+.r START					# Stato di reset
+0---- START START 0000
+10-00 START START 0000
+11-00 START START 1000
+1--01 START SG 1010
+1--00 SG START 1000
+0---- SG START 1000
+10-01 SG SG 0010
+11-01 SG SG 1010
+1--10 SG OPT 1100
+1--01 OPT SG 1010
+11-10 OPT OPT 1100
+10-10 OPT OPT 0100
+0---- OPT START 1000
+1--11 OPT FG 1110
+1--10 FG OPT 1100
+0---- FG START 1000
+10011 FG FG 0110
+11-11 FG FG 1110
+10111 FG FG 0111
+.end_kiss
+
+.end

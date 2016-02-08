@@ -1,0 +1,17 @@
+.model zero14bit		# costante 0 a 14 bit
+.outputs Z14 Z13 Z12 Z11 Z10 Z9 Z8 Z7 Z6 Z5 Z4 Z3 Z2 Z1
+.names Z14 
+.names Z13 
+.names Z12 
+.names Z11 
+.names Z10
+.names Z9
+.names Z8
+.names Z7
+.names Z6
+.names Z5
+.names Z4
+.names Z3
+.names Z2
+.names Z1
+.end

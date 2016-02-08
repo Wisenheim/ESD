@@ -1,0 +1,102 @@
+.model dataPath
+.inputs ST R14 R13 R12 R11 R10 R9 R8 R7 R6 R5 R4 R3 R2 R1
+.outputs SA2 SA1 TS NUMB8 NUMB7 NUMB6 NUMB5 NUMB4 NUMB3 NUMB2 NUMB1
+
+
+# Istanza della variabile 0:
+.subckt zero H0=Z
+
+# Istanza della variabile 1:
+.subckt uno H1=U
+
+
+
+# Istanza del primo multiplexer che fa partire il data path
+#.subckt starting ST=ST INR14=R14 INR13=R13 INR12=R12 INR11=R11 INR10=R10 INR9=R9 INR8=R8 INR7=R7 INR6=R6 INR5=R5 INR4=R4 INR3=R3 INR2=R2 INR1=R1 NZ14=Z NZ13=Z NZ12=Z NZ11=Z NZ10=Z NZ9=Z NZ8=Z NZ7=Z NZ6=Z NZ5=Z NZ4=Z NZ3=Z NZ2=Z NZ1=Z \ OR14=OS14 OR13=OS13 OR12=OS12 OR11=OS11 OR10=OS10 OR9=OS9 OR8=OS8 OR7=OS7 OR6=OS6 OR5=OS5 OR4=OS4 OR3=OS3 OR2=OS2 OR1=OS1
+
+
+
+
+# Istanza dei 3 comparatori partendo dall'ultimo (quello a destra)
+.subckt minore14 A14=R14 A13=R13 A12=R12 A11=R11 A10=R10 A9=R9 A8=R8 A7=R7 A6=R6 A5=R5 A4=R4 A3=R3 A2=R2 A1=R1 B14=Z B13=Z B12=U B11=U B10=U B9=U B8=U B7=Z B6=U B5=Z B4=Z B3=Z B2=Z B1=U \ O=OFG
+
+.subckt minore14 A14=R14 A13=R13 A12=R12 A11=R11 A10=R10 A9=R9 A8=R8 A7=R7 A6=R6 A5=R5 A4=R4 A3=R3 A2=R2 A1=R1 B14=Z B13=Z B12=Z B11=U B10=U B9=U B8=U B7=U B6=Z B5=U B4=Z B3=Z B2=Z B1=Z \ O=OPT
+
+.subckt equal14 A14=R14 A13=R13 A12=R12 A11=R11 A10=R10 A9=R9 A8=R8 A7=R7 A6=R6 A5=R5 A4=R4 A3=R3 A2=R2 A1=R1 B14=Z B13=Z B12=Z B11=Z B10=Z B9=Z B8=Z B7=Z B6=Z B5=Z B4=Z B3=Z B2=Z B1=Z \ O=OSG
+
+
+
+
+# Istanza dei 3 multiplexer partendo dall'ultimo (quello a destra)
+.subckt mux2 A2=U A1=Z B2=U B1=U S=OFG \ O2=X2 O1=X1
+
+.subckt mux2 A2=Z A1=U B2=X2 B1=X1 S=OPT \ O2=Y2 O1=Y1
+
+.subckt mux2 A2=Z A1=Z B2=Y2 B1=Y1 S=OSG \ O2=SA2 O1=SA1
+
+
+########################################################################################
+
+
+# Istanza della costante 0 a 8 bit:
+.subckt zero8 ZE8=ZE8 ZE7=ZE7 ZE6=ZE6 ZE5=ZE5 ZE4=ZE4 ZE3=ZE3 ZE2=ZE2 ZE1=ZE1
+
+# Istanza della costante 14 a 8 bit
+.subckt quat8 QU8=QU8 QU7=QU7 QU6=QU6 QU5=QU5 QU4=QU4 QU3=QU3 QU2=QU2 QU1=QU1 
+
+# Istanza del contatore a 8 bit numb8
+.subckt numb8 ST=ST \ NUMB8=K8 NUMB7=K7 NUMB6=K6 NUMB5=K5 NUMB4=K4 NUMB3=K3 NUMB2=K2 NUMB1=K1
+
+# Istanza del mux che passa 0 o NUMB del reg, sull'uscita NUMB dell'FSMD
+.subckt mux8 A8=ZE8 A7=ZE7 A6=ZE6 A5=ZE5 A4=ZE4 A3=ZE3 A2=ZE2 A1=ZE1 B8=K8 B7=K7 B6=K6 B5=K5 B4=K4 B3=K3 B2=K2 B1=K1 S=ST \ O8=NUMB8 O7=NUMB7 O6=NUMB6 O5=NUMB5 O4=NUMB4 O3=NUMB3 O2=NUMB2 O1=NUMB1
+
+# Istanza del mux che passa 0 o il contenuto del registro nel comparatore ">= 15"
+.subckt mux8 A8=ZE8 A7=ZE7 A6=ZE6 A5=ZE5 A4=ZE4 A3=ZE3 A2=ZE2 A1=ZE1 B8=K8 B7=K7 B6=K6 B5=K5 B4=K4 B3=K3 B2=K2 B1=K1 S=ST \ O8=I8 O7=I7 O6=I6 O5=I5 O4=I4 O3=I3 O2=I2 O1=I1
+
+# Istanza del maggiore che confronta i secondi con 14
+.subckt maggiore8 A8=I8 A7=I7 A6=I6 A5=I5 A4=I4 A3=I3 A2=I2 A1=I1 B8=QU8 B7=QU7 B6=QU6 B5=QU5 B4=QU4 B3=QU3 B2=QU2 B1=QU1 \ O=TS
+
+
+.search maggiore8.blif
+.search starting.blif
+.search minore14.blif
+.search equal14.blif
+.search mux2.blif
+.search zero8.blif
+.search numb8.blif
+
+.end
+
+
+# Variabile Zero
+.model zero
+.outputs H0
+.names H0
+.end
+
+# Varibile Uno
+.model uno
+.outputs H1
+.names H1
+1
+.end
+
+ 
+# Variabile 14 a 8 bit
+.model quat8
+.outputs QU8 QU7 QU6 QU5 QU4 QU3 QU2 QU1
+.names QU8
+.names QU7
+.names QU6
+.names QU5
+.names QU4
+1
+.names QU3
+1
+.names QU2
+1
+.names QU1
+.end
+
+ 
+ 

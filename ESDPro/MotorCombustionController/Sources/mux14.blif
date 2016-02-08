@@ -1,0 +1,49 @@
+.model mux14
+.inputs A14 A13 A12 A11 A10 A9 A8 A7 A6 A5 A4 A3 A2 A1 B14 B13 B12 B11 B10 B9 B8 B7 B6 B5 B4 B3 B2 B1 ST
+.outputs O14 O13 O12 O11 O10 O9 O8 O7 O6 O5 O4 O3 O2 O1
+
+.names ST A14 B14 O14
+11- 1
+0-1 1
+.names ST A13 B13 O13
+11- 1
+0-1 1
+.names ST A12 B12 O12
+11- 1
+0-1 1
+.names ST A11 B11 O11
+11- 1
+0-1 1
+.names ST A10 B10 O10
+11- 1
+0-1 1
+.names ST A9 B9 O9
+11- 1
+0-1 1
+.names ST A8 B8 O8
+11- 1
+0-1 1
+.names ST A7 B7 O7
+11- 1
+0-1 1
+.names ST A6 B6 O6
+11- 1
+0-1 1
+.names ST A5 B5 O5
+11- 1
+0-1 1
+.names ST A4 B4 O4
+11- 1
+0-1 1
+.names ST A3 B3 O3
+11- 1
+0-1 1
+.names ST A2 B2 O2
+11- 1
+0-1 1
+.names ST A1 B1 O1
+11- 1
+0-1 1
+
+.end
+

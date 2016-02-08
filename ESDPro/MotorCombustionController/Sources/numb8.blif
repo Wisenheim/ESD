@@ -1,0 +1,52 @@
+.model numb8
+.inputs ST
+.outputs NUMB8 NUMB7 NUMB6 NUMB5 NUMB4 NUMB3 NUMB2 NUMB1
+
+# Istanza della varibile 0 a 8 bit:
+.subckt zero8 ZE8=ZE8 ZE7=ZE7 ZE6=ZE6 ZE5=ZE5 ZE4=ZE4 ZE3=ZE3 ZE2=ZE2 ZE1=ZE1
+
+# Istanza della variabile 1 a 8 bit
+.subckt uno8 UN8=UN8 UN7=UN7 UN6=UN6 UN5=UN5 UN4=UN4 UN3=UN3 UN2=UN2 UN1=UN1
+
+
+#############################################################################################################
+
+
+# Istanza del registro a 8 bit
+.subckt registro8 A8=NUMB8 A7=NUMB7 A6=NUMB6 A5=NUMB5 A4=NUMB4 A3=NUMB3 A2=NUMB2 A1=NUMB1 \ O8=IN8 O7=IN7 O6=IN6 O5=IN5 O4=IN4 O3=IN3 O2=IN2 O1=IN1
+
+# Istanza del multiplexer che passa 1 o 0 al sommatore del contatore
+.subckt mux8 A8=ZE8 A7=ZE7 A6=ZE6 A5=ZE5 A4=ZE4 A3=ZE3 A2=ZE2 A1=ZE1 B8=UN8 B7=UN7 B6=UN6 B5=UN5 B4=UN4 B3=UN3 B2=UN2 B1=UN1 S=ST \ O8=SUM8 O7=SUM7 O6=SUM6 O5=SUM5 O4=SUM4 O3=SUM3 O2=SUM2 O1=SUM1
+
+# Istanza del sommatore di uno a 8 bit
+.subckt sommatore8 A8=SUM8 A7=SUM7 A6=SUM6 A5=SUM5 A4=SUM4 A3=SUM3 A2=SUM2 A1=SUM1 B8=IN8 B7=IN7 B6=IN6 B5=IN5 B4=IN4 B3=IN3 B2=IN2 B1=IN1 \ O8=RE8 O7=RE7 O6=RE6 O5=RE5 O4=RE4 O3=RE3 O2=RE2 O1=RE1
+
+# Istanza del multiplexer a 8 bit che carica il valore nel registro
+.subckt mux8 A8=ZE8 A7=ZE7 A6=ZE6 A5=ZE5 A4=ZE4 A3=ZE3 A2=ZE2 A1=ZE1 B8=RE8 B7=RE7 B6=RE6 B5=RE5 B4=RE4 B3=RE3 B2=RE2 B1=RE1 S=ST \ O8=NUMB8 O7=NUMB7 O6=NUMB6 O5=NUMB5 O4=NUMB4 O3=NUMB3 O2=NUMB2 O1=NUMB1
+
+
+
+############################################################################################################
+
+
+.search registro8.blif
+.search mux8.blif
+.search sommatore8.blif
+.search zero8.blif
+
+.end
+
+# Variabile Uno a 8 bit
+.model uno8
+.outputs UN8 UN7 UN6 UN5 UN4 UN3 UN2 UN1
+.names UN8
+.names UN7
+.names UN6
+.names UN5
+.names UN4
+.names UN3
+.names UN2
+.names UN1
+1
+.end
+

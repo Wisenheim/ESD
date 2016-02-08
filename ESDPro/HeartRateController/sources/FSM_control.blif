@@ -1,0 +1,37 @@
+.model FSM_control
+.inputs init reset sa0 sa1
+.outputs soglia0 soglia1 start
+
+.start_kiss
+.i 4
+.o 3
+.s 4
+.p 17
+.r OFF
+
+#tabella transizioni
+0--- OFF OFF 000
+1-01 OFF SOTTO 010
+1-10 OFF IN 100
+1-11 OFF OLTRE 110
+0--- SOTTO OFF 000
+1001 SOTTO SOTTO 011
+11-- SOTTO SOTTO 010
+1010 SOTTO IN 100
+0--- IN OFF 000
+1010 IN IN 101
+11-- IN IN 100
+1011 IN OLTRE 110
+1001 IN SOTTO 010
+0--- OLTRE OFF 000
+1011 OLTRE OLTRE 111
+11-- OLTRE OLTRE 110
+1010 OLTRE IN 100
+
+.end_kiss
+
+#codifica degli stati
+.code OFF 00
+.code SOTTO 01
+.code IN 10
+.code OLTRE 11

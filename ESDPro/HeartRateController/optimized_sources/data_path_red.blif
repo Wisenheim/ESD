@@ -1,0 +1,50 @@
+.model data_path
+.inputs st bpm7 bpm6 bpm5 bpm4 bpm3 bpm2 bpm1 bpm0
+.outputs sa0 sa1 numb7 numb6 numb5 numb4 numb3 numb2 numb1 numb0
+.latch    numb7 c7 re NIL 0
+.latch    numb6 c6 re NIL 0
+.latch    numb5 c5 re NIL 0
+.latch    numb4 c4 re NIL 0
+.latch    numb3 c3 re NIL 0
+.latch    numb2 c2 re NIL 0
+.latch    numb1 c1 re NIL 0
+.latch    numb0 c0 re NIL 0
+.names bpm7 bpm6 bpm5 sa0
+11- 1
+1-1 1
+.names bpm6 bpm4 bpm3 bpm2 bpm1 bpm0 sa0 sa1
+1------ 1
+------0 1
+-11---- 1
+-1-11-- 1
+-1-1-1- 1
+.names st numb6 c7 c6 numb7
+-11- 1
+1-10 1
+1001 1
+.names st c6 c5 re3 numb6
+110- 1
+11-0 1
+1011 1
+.names st re3 c5 numb5
+101 1
+110 1
+.names st numb3 c4 c3 re3 numb4
+1-1-0 1
+10-10 1
+.names st numb2 c3 c2 numb3
+-11- 1
+1-10 1
+1001 1
+.names st numb0 c2 c1 c0 numb2
+-11-- 1
+1-10- 1
+1-011 1
+.names st numb0 c0 c1 numb1
+-1-1 1
+1-10 1
+.names st c0 numb0
+10 1
+.names c4 c3 c2 c1 c0 re3
+11111 1
+.end

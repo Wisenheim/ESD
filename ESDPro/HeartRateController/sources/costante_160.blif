@@ -1,0 +1,14 @@
+.model costante_160
+.outputs o7 o6 o5 o4 o3 o2 o1 o0
+.subckt uno out=o7
+.subckt zero out=o6
+.subckt uno out=o5
+.subckt zero out=o4
+.subckt zero out=o3
+.subckt zero out=o2
+.subckt zero out=o1
+.subckt zero out=o0
+.search uno.blif
+.search zero.blif
+.end
+

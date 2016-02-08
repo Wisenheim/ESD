@@ -1,0 +1,15 @@
+.model AIRBAG
+.inputs INIT RESET CRASH SPEED7 SPEED6 SPEED5 SPEED4 SPEED3 SPEED2 SPEED1 SPEED0
+.outputs BOOM
+
+# instanziazione dell'unità di controllo
+.subckt CONTROLLO INIT=INIT RESET=RESET CRASH=CRASH BOOM=BOOM \ GO=GO START=START
+# instanziazione dell'unità di elaborazione
+.subckt ELABORAZIONE SPEED7=SPEED7 SPEED6=SPEED6 SPEED5=SPEED5 SPEED4=SPEED4 SPEED3=SPEED3 SPEED2=SPEED2 SPEED1=SPEED1 SPEED0=SPEED0 START=START GO=GO
+
+# file che contiene il modello del controllore
+.search controllo.blif
+
+# file che contiene il modello del datapath
+.search elaborazione.blif
+.end

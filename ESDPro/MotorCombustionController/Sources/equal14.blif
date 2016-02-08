@@ -1,0 +1,24 @@
+.model equal14
+.inputs A14 A13 A12 A11 A10 A9 A8 A7 A6 A5 A4 A3 A2 A1 B14 B13 B12 B11 B10 B9 B8 B7 B6 B5 B4 B3 B2 B1
+.outputs O
+
+.subckt xnor A=A14 B=B14 X=X14
+.subckt xnor A=A13 B=B13 X=X13
+.subckt xnor A=A12 B=B12 X=X12
+.subckt xnor A=A11 B=B11 X=X11
+.subckt xnor A=A10 B=B10 X=X10
+.subckt xnor A=A9  B=B9  X=X9
+.subckt xnor A=A8  B=B8  X=X8
+.subckt xnor A=A7  B=B7  X=X7
+.subckt xnor A=A6  B=B6  X=X6
+.subckt xnor A=A5  B=B5  X=X5
+.subckt xnor A=A4  B=B4  X=X4
+.subckt xnor A=A3  B=B3  X=X3
+.subckt xnor A=A2  B=B2  X=X2
+.subckt xnor A=A1  B=B1  X=X1
+
+.names X14 X13 X12 X11 X10 X9 X8 X7 X6 X5 X4 X3 X2 X1 O
+11111111111111 1
+
+.search xnor.blif
+.end

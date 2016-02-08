@@ -1,0 +1,8 @@
+.model REGISTRO
+.inputs A
+.outputs O
+.latch A O re NIL 0	
+	
+# A=input O=output re='rising edge' (fronte di salita del ck) NIL=ck nullo 0=valore di default
+
+.end

@@ -1,0 +1,24 @@
+.model R2SHIFT8
+.inputs A7 A6 A5 A4 A3 A2 A1 A0
+.outputs O7 O6 O5 O4 O3 O2 O1 O0
+
+.names A7 O5
+1 1
+.names A6 O4
+1 1
+.names A5 O3
+1 1
+.names A4 O2
+1 1
+.names A3 O1
+1 1
+.names A2 O0
+1 1
+.names A1 O7
+1 0
+0 0
+.names A0 O6
+1 0
+0 0
+
+.end
